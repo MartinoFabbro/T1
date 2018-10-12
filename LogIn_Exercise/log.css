@@ -6,7 +6,7 @@
   margin: auto;
 }
 .form {
-  position: relative;
+  position: fixed;
   z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
@@ -41,8 +41,6 @@ input[type=button] {
   cursor: pointer;
 }
 
-}
-}
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -51,14 +49,21 @@ input[type=button] {
 
 span {
     font-family: "Roboto", sans-serif;
+    font-size: 20px;
     background: #f2f2f2;
-    text-align: center;
-    margin-left: 34.1%;
+    background-color: rgb(190, 223, 191);
+    text-transform: uppercase;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+
+}
+
+.result {
+  text-align: center;
+
 }
 
 
-
-}
 body {
   background: #76b852;
   background: -webkit-linear-gradient(right, #76b852, #8DC26F);

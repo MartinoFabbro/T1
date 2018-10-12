@@ -1,21 +1,19 @@
 var attempt = 3;
+var retrievedUsername= localStorage.getItem('username');
+var retrievedPassword= localStorage.getItem('password');
 
 var submit = document.getElementById("submit");
 
 function getInfo() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-
 // Check logins if the user has more than 1 attempt left
     if (attempt > 0) {
         var logged_in = false;
-        for (i = 0; i < objPeople.length; i++) {
-            //when it checks for logins, it should compare what the user typed in with all the logins on that list
-            if (username === objPeople[i].username && password === objPeople[i].password) {
+            if (retrievedUsername === username && retrievedPassword === password) {
                 logged_in = true;
-                break;
             } 
-        }
+        
             //if any of them match you get redirected to index2
         if (logged_in) {
             console.log(username + " is logged in");
@@ -32,13 +30,12 @@ function getInfo() {
         }
         
     } else {
-        document.getElementById("loginResult").textContent ="banned lol";
         document.getElementById("username").disabled = true;
         document.getElementById("password").disabled = true;
         document.getElementById("submit").disabled = true;
-        setTimeout(function() {
-            alert("you are banned mate");
-        }, 1000);
+        document.getElementById("loginResult").textContent ="wait for it...";
+        setTimeout(function() {alert("You are banned");},2000);
+
         return;
     }
 }
