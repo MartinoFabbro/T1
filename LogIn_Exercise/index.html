@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
+    <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="log.css">
 
 </head>
 <body>
-    <div class ="result">
-        <span id="loginResult"></span>
-    </div>
 
+    <div class ="result">
+        <span id="registrationResult"></span>
+    </div>
+    
 <div class="login-page">
     <div class="form">
       <form class="login-form">
-        <input type="text" name="username" id="username" placeholder ="username" required>
+        <input type="text" name="username" required pattern=".{6,}" id="username"  placeholder ="username (6 char min)"  />
         <br>
-        <input type="password" name="password" id="password" placeholder="password" required>
-        <input type="button" value="Login" name="submit" id="submit" onclick="validate()">       
+        <input type="password" name="password" required pattern=".{6,}" id="password" placeholder="password (6 char min)" />
+        <br>
+        <input type="password" name="password" id="password1" pattern="[a-z]{5,15}" placeholder="Confirm pass" required/>
+        <input type="button" value="Register" name="submit" id="submit"  />
+       
       </form>
     </div>
   </div>
 
-        <script src="./login.js"></script>
-
+        <script src="./Registration.js"></script>
       
 </body>
 </html>

@@ -18,7 +18,7 @@ function getInfo() {
         if (logged_in) {
             console.log(username + " is logged in");
             alert("Login Successfully. You will now be redirected");
-            window.location = "index2.html";
+            window.location = "blog.html";
             return;
         } else {
             // else you get a message showed
