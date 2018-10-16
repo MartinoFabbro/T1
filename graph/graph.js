@@ -2,15 +2,21 @@ var submit = document.getElementById("submit");
 
 function getInfo() {
 
-var fetch = document.getElementById("selector").value;
+var fetch = document.getElementById("whatever").value;
+
+if(fetch === "apple") {
+    fetch1="AAPL"
+} else if (fetch === "tesla") {
+    fetch1="TSLA"
+};
 
 new TradingView.widget(
     {
     "width": 980,
     "height": 610,
-    "symbol": "NASDAQ:"+fetch,
+    "symbol": "NASDAQ:"+fetch1,
     "interval": "60",
-    "timezone": "Etc/UTC",
+    "timezone": "Europe/Copenaghen",
     "theme": "Light",
     "style": "1",
     "locale": "en",
