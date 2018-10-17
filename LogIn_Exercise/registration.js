@@ -1,5 +1,25 @@
 var submit = document.getElementById("submit");
 
+function hashPassword(password) {
+    var a = 1, c = 0, h, o;
+    if (password) {
+      a = 0;
+      /*jshint plusplus:false bitwise:false*/
+      for (h = password.length - 1; h >= 0; h--) {
+        o = password.charCodeAt(h);
+        a = (a<<6&268435455) + o + (o<<14);
+        c = a & 266338304;
+        a = c!==0?a^c>>21:a;
+      }
+    }else {
+      // If the password is not valid, we'll throw and error we're able to catch
+      throw new Error("The password supplied is not valid");
+    }
+    return String(a);
+};
+
+
+
 function getInfo() {
 
     var username = document.getElementById("username").value;
@@ -13,7 +33,7 @@ function getInfo() {
     alert("min 6 characters for user and pass dork");
     return
  } else if ((username.indexOf(" ") !== -1) || (password.indexOf(" ") !== -1)) {
-     alert("are you stupid or just pretending? No spaces");
+     alert("No spaces :(");
      return
  } else if (username === password) {
      alert("username and password can not be the same");
@@ -26,12 +46,12 @@ function getInfo() {
      return
  } else if (password === password1) {
     localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
+    localStorage.setItem('password', hashPassword(password));
     alert("Registration Succesfull. You will now be redirected");
     window.location = "login.html";
     return
 } else {
-        document.getElementById("registrationResult").textContent = "the password dont match, try again";
+        document.getElementById("registrationResult").textContent = "the passwords dont match, try again";
         return
 
 };
@@ -39,5 +59,4 @@ function getInfo() {
 };
 
 submit.onclick = getInfo;
-
 
