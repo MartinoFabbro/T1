@@ -2,19 +2,18 @@ var submit = document.getElementById("submit");
 
 function getInfo() {
 
-var fetch = document.getElementById("whatever").value;
+var fetch = document.getElementById("companyList").value;
 
-if(fetch === "apple") {
-    fetch1="AAPL"
-} else if (fetch === "tesla") {
-    fetch1="TSLA"
-};
+if (arrayCompanies.includes(fetch)) {
+    var index = arrayCompanies.indexOf(fetch);
+    fetch = arraySymbol[index] };
+
 
 new TradingView.widget(
     {
     "width": 980,
     "height": 610,
-    "symbol": "NASDAQ:"+fetch1,
+    "symbol": "NASDAQ:"+fetch,
     "interval": "60",
     "timezone": "Europe/Copenaghen",
     "theme": "Light",
@@ -28,6 +27,3 @@ new TradingView.widget(
     );
 };
 submit.onclick = getInfo;
-
-
-
