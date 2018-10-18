@@ -1,5 +1,15 @@
 var submit = document.getElementById("submit");
+var registration = document.getElementById("redirect");
+var User = function(name,username,password) {
+        this.name = name;
+        this.username = username;
+        this.password = hashPassword(password);
+    };
 
+function redirect() {
+    window.location = "login.html";
+    return
+}
 function hashPassword(password) {
     var a = 1, c = 0, h, o;
     if (password) {
@@ -18,15 +28,19 @@ function hashPassword(password) {
     return String(a);
 };
 
-
+var users = [];
 
 function getInfo() {
-
+    
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var password1 = document.getElementById("password1").value;
+    var name = document.getElementById("name").value;
+    // var name = name.replace(/ /g,'')
 
-    if (!password || !username || !password1) {
+
+
+    if (!password || !username || !password1 || !name) {
      alert("idiot");
      return;
  }else if ((password.length < 6) || (username.length <6)) {
@@ -45,18 +59,20 @@ function getInfo() {
      alert("password needs to contain atleast an UPPERCASE letter")
      return
  } else if (password === password1) {
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', hashPassword(password));
-    alert("Registration Succesfull. You will now be redirected");
+    users.push(new User(name,username,password));
+    localStorage.setItem("array",JSON.stringify(users));
+    localStorage.setItem("name",name);
+    alert("Registration Succesfull. " + name +" You will now be redirected");
     window.location = "login.html";
-    return
 } else {
         document.getElementById("registrationResult").textContent = "the passwords dont match, try again";
         return
 
 };
-
 };
 
+
 submit.onclick = getInfo;
+registration.onclick = redirect;
+
 

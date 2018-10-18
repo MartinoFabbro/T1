@@ -1,8 +1,8 @@
 var attempt = 3;
-var retrievedUsername= localStorage.getItem("username");
-var retrievedPassword= localStorage.getItem("password");
-
+var retrievedUser = JSON.parse(localStorage.getItem("array"))
 var submit = document.getElementById("submit");
+var name = localStorage.getItem("name")
+
 
 
 function getInfo() {
@@ -28,14 +28,14 @@ function getInfo() {
 // Check logins if the user has more than 1 attempt left
     if (attempt > 0) {
         var logged_in = false;
-            if (retrievedUsername === username && hashedPass(password) === retrievedPassword) {
+            if (retrievedUser.username === username.value && retrievedUser.password === hashedPass(password).value) {
                 logged_in = true;
             } 
         
             //if any of them match you get redirected to index2
         if (logged_in) {
             console.log(username + " is logged in");
-            alert("Login Successfully. You will now be redirected");
+            alert("Hi, "+name+" You will now be redirected");
             window.location = "mainPage.html";
             return;
         } else {

@@ -16,13 +16,14 @@
     
 <div class="login-page">
     <div class="form">
-      
+        <input type="text" name="name" required id="name"  placeholder ="what is your name?"  />
         <input type="text" name="username" required pattern=".{6,}" id="username"  placeholder ="username (6 char min)"  />
         <br>
         <input type="password" name="password" required pattern=".{6,}" id="password" placeholder="password (6 char min)" />
         <br>
         <input type="password" name="password" id="password1" pattern="[a-z]{5,15}" placeholder="Confirm pass" required/>
         <input type="button" value="Register" name="submit" id="submit"  />
+        <input type="button" value="Log In Directly" id="redirect"/>
        
    
     </div>
