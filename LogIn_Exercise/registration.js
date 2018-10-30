@@ -1,10 +1,20 @@
 var submit = document.getElementById("submit");
 var registration = document.getElementById("redirect");
-var User = function(name,username,password) {
+
+class User {
+constructor(name,username,password) {
         this.name = name;
         this.username = username;
         this.password = hashPassword(password);
-    };
+    }
+};
+
+function newUser(name,username,password) {
+    var temp = new User(name,username,password);
+    users.push(temp)
+;}
+
+var users = [];
 
 function redirect() {
     window.location = "login.html";
@@ -28,7 +38,7 @@ function hashPassword(password) {
     return String(a);
 };
 
-var users = [];
+
 
 function getInfo() {
     
@@ -36,7 +46,7 @@ function getInfo() {
     var password = document.getElementById("password").value;
     var password1 = document.getElementById("password1").value;
     var name = document.getElementById("name").value;
-    // var name = name.replace(/ /g,'')
+
 
 
 
@@ -59,7 +69,7 @@ function getInfo() {
      alert("password needs to contain atleast an UPPERCASE letter")
      return
  } else if (password === password1) {
-    users.push(new User(name,username,password));
+    users.push(newUser(name,username,password));
     localStorage.setItem("array",JSON.stringify(users));
     localStorage.setItem("name",name);
     alert("Registration Succesfull. " + name +" You will now be redirected");

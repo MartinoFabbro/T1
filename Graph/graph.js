@@ -26,4 +26,13 @@ new TradingView.widget(
   }
     );
 };
+
+
+
+
+function logOff() {
+    window.location = "../LogIn_Exercise/login.html"
+};
+
 submit.onclick = getInfo;
+logoff.onclick = logOff;

@@ -36,7 +36,7 @@ function getInfo() {
         if (logged_in) {
             console.log(username + " is logged in");
             alert("Hi, "+name+" You will now be redirected");
-            window.location = "mainPage.html";
+            window.location = "../Graph/mainPage.html";
             return;
         } else {
             // else you get a message showed
