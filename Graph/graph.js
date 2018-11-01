@@ -6,8 +6,20 @@ var fetch = document.getElementById("companyList").value;
 
 if (arrayCompanies.includes(fetch)) {
     var index = arrayCompanies.indexOf(fetch);
-    fetch = arraySymbol[index] };
+    fetch = arraySymbol[index]};
 
+  
+
+setTimeout(function(){ 
+ if (arrayCeo[index]) {
+   
+
+    var ceo = arrayCeo[index];
+    document.getElementById("ceo").innerHTML= ceo;
+
+ } else { 
+    document.getElementById("ceo").innerHTML= "2 lazy 4 dis";
+}}, 2000);
 
 new TradingView.widget(
     {
@@ -31,8 +43,11 @@ new TradingView.widget(
 
 
 function logOff() {
-    window.location = "../LogIn_Exercise/login.html"
+    window.location = "../LogIn_Exercise/index.html"
 };
 
 submit.onclick = getInfo;
 logoff.onclick = logOff;
+
+
+

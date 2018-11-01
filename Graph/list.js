@@ -6797,3 +6797,12 @@ const arrayCompanies = [
 "Zynerba Pharma CS"
 ]
 
+const arrayCeo = [
+    "Thomas J. McInerney",
+    "Doug Parker",
+    "Hilton H. Howell, Jr",
+    "Thompson Lin",
+    "Norman H Asbjornson",
+    "Tim Cook",
+    "Bill Flynn"
+]
