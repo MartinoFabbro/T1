@@ -24,7 +24,6 @@ function newUser(name,username,password) {
 ;}
 
 
-
 function redirect() {
     window.location = "login.html";
     return
