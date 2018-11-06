@@ -18,6 +18,8 @@ constructor(name,username,password) {
     }
 };
 
+
+
 function newUser(name,username,password) {
     var temp = new User(name,username,password);
     users.push(temp)
@@ -80,7 +82,7 @@ function getInfo() {
  } else if (password === password1) {
     newUser(name,username,password);
     localStorage.setItem("array",JSON.stringify(users));
-    alert("Registration Succesfull. " + name +" You will now be redirected");
+    alert("Registration Succesfull. "+ name +" You will now be redirected");
     window.location = "login.html";
 } else {
         document.getElementById("registrationResult").textContent = "the passwords dont match, try again";
