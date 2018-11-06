@@ -1,9 +1,12 @@
 var attempt = 3;
 var retrievedUser = JSON.parse(localStorage.getItem("array"))
 var submit = document.getElementById("submit");
-var name = localStorage.getItem("name")
+var back = document.getElementById("register");
 
 
+function goBack () {
+    window.location = "./index.html"
+}
 
 function getInfo() {
     var username = document.getElementById("username").value;
@@ -35,7 +38,7 @@ function getInfo() {
             //if any of them match you get redirected to index2
         if (logged_in) {
             console.log(username + " is logged in");
-            alert("Hi, "+name+" You will now be redirected");
+            alert("Hi, "+ username +" You will now be redirected");
             window.location = "../Graph/mainPage.html";
             return;
         } else {
@@ -61,3 +64,4 @@ function getInfo() {
 
 
 submit.onclick = getInfo
+back.onclick = goBack

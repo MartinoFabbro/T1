@@ -1,6 +1,15 @@
 var submit = document.getElementById("submit");
 var registration = document.getElementById("redirect");
 
+// var users = [];
+
+if (localStorage.getItem("array")) {
+    users = JSON.parse(localStorage.getItem("array"))
+} else {
+    users = []
+}
+
+
 class User {
 constructor(name,username,password) {
         this.name = name;
@@ -14,7 +23,7 @@ function newUser(name,username,password) {
     users.push(temp)
 ;}
 
-var users = [];
+
 
 function redirect() {
     window.location = "login.html";
@@ -70,9 +79,8 @@ function getInfo() {
      alert("password needs to contain atleast an UPPERCASE letter")
      return
  } else if (password === password1) {
-    users.push(newUser(name,username,password));
+    newUser(name,username,password);
     localStorage.setItem("array",JSON.stringify(users));
-    localStorage.setItem("name",name);
     alert("Registration Succesfull. " + name +" You will now be redirected");
     window.location = "login.html";
 } else {
@@ -85,5 +93,4 @@ function getInfo() {
 
 submit.onclick = getInfo;
 registration.onclick = redirect;
-
 
