@@ -9,7 +9,6 @@ if (localStorage.getItem("array")) {
     users = []
 }
 
-
 class User {
 constructor(name,username,password) {
         this.name = name;
@@ -17,8 +16,6 @@ constructor(name,username,password) {
         this.password = hashPassword(password);
     }
 };
-
-
 
 function newUser(name,username,password) {
     var temp = new User(name,username,password);
@@ -49,32 +46,40 @@ function hashPassword(password) {
     return String(a);
 };
 
-
-
 function getInfo() {
     
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var password1 = document.getElementById("password1").value;
     var name = document.getElementById("name").value;
+    var retrievedUser = JSON.parse(localStorage.getItem("array"))
+    var chooseAnother = false
 
+if (retrievedUser) {
+for (var x=0; x < retrievedUser.length; x++) {
+    if (retrievedUser[x].username === username) {
+        var chooseAnother = true
+    }
+}
+}
 
-
-
-    if (!password || !username || !password1 || !name) {
+  if (!password || !username || !password1 || !name) {
      alert("idiot");
      return;
+ }else if (chooseAnother) {
+    document.getElementById("registrationResult").textContent =("Username already taken, choose another one");
+     return;
  }else if ((password.length < 6) || (username.length <6)) {
-    alert("min 6 characters for user and pass dork");
+    document.getElementById("registrationResult").textContent = ("min 6 characters for user and pass dork");
     return
  } else if ((username.indexOf(" ") !== -1) || (password.indexOf(" ") !== -1)) {
-     alert("No spaces :(");
+    document.getElementById("registrationResult").textContent = ("No spaces :(");
      return
  } else if (username === password) {
-     alert("username and password can not be the same");
+    document.getElementById("registrationResult").textContent = ("username and password can not be the same");
      return
  } else if (password.search(/\d/)== -1) {
-     alert("password needs to contain atleast a number");
+    document.getElementById("registrationResult").textContent = ("password needs to contain atleast a number");
      return
  } else if (password.search(/\w*[A-Z]/)== -1) {
      alert("password needs to contain atleast an UPPERCASE letter")
@@ -92,6 +97,6 @@ function getInfo() {
 };
 
 
-submit.onclick = getInfo;
-registration.onclick = redirect;
 
+submit.onclick= getInfo;
+registration.onclick = redirect;

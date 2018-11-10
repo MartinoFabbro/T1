@@ -17,7 +17,6 @@ for (var x=0; x<retrievedUser.length; x++) {
 var submit = document.getElementById("submit");
 var back = document.getElementById("register");
 
-
 function getInfo() {
     
     var username = document.getElementById("username").value;
