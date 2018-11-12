@@ -1,6 +1,23 @@
 var attempt = 3;
 var retrievedUser = JSON.parse(localStorage.getItem("array"))
 
+if (localStorage.getItem("banned")) {
+    banned = JSON.parse(localStorage.getItem("banned"))
+} else {
+    banned = []
+}
+
+class Banned {
+    constructor(username) {
+            this.username = username;
+        }
+    };
+    
+    function newBan(username) {
+        var temp = new Banned (username);
+        banned.push(temp)
+    ;}
+
 //------------Test----------------
 var test = 0
 if (test === 1) {
@@ -45,8 +62,16 @@ function getInfo() {
 // // Check logins if the user has more than 1 attempt left
 if (!username || !password) {
     alert("dork");
+    return;
 }
  
+for (i=0; i<banned.length; i++) {
+    if (banned[i].username === username) {
+        alert("this user is banned");
+        return;
+    }
+}
+    
 if (attempt > 0) {
   var logged_in = false;
   for (var i=0; i<retrievedUser.length; i++) {
@@ -70,12 +95,13 @@ if (attempt > 0) {
         }
         
     } else {
+        newBan(username);
+        localStorage.setItem("banned",JSON.stringify(banned));
         document.getElementById("username").disabled = true;
         document.getElementById("password").disabled = true;
         document.getElementById("submit").disabled = true;
         document.getElementById("loginResult").textContent ="Can't you read?";
         setTimeout(function() {alert("You are banned");},2000);
-
         return;
     }
 };
