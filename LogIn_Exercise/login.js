@@ -83,7 +83,7 @@ if (attempt > 0) {
         
             //if any of them match you get redirected to index2
         if (logged_in) { 
-            console.log(username + " is logged in");
+           // console.log(username + " is logged in");
             alert("Hi, "+ username +" You will now be redirected");
             window.location = "../Graph/mainPage.html"
         } else {

@@ -9,6 +9,7 @@ if (localStorage.getItem("array")) {
     users = []
 }
 
+
 class User {
 constructor(name,username,password) {
         this.name = name;
@@ -52,13 +53,30 @@ function getInfo() {
     var password = document.getElementById("password").value;
     var password1 = document.getElementById("password1").value;
     var name = document.getElementById("name").value;
-    var retrievedUser = JSON.parse(localStorage.getItem("array"))
-    var chooseAnother = false
+   
+    var retrievedUser = JSON.parse(localStorage.getItem("array"));
+    var chooseAnother = false;
+
+    var isBanned = false;
+
+    if (localStorage.getItem("banned")) {
+        banned = JSON.parse(localStorage.getItem("banned"))
+    } else {
+        banned = []
+    }
 
 if (retrievedUser) {
 for (var x=0; x < retrievedUser.length; x++) {
     if (retrievedUser[x].username === username) {
         var chooseAnother = true
+    }
+} 
+}
+
+if (banned) {
+ for (var y=0; y < banned.length; y++ ) {
+    if (banned[y].username === username) {
+        var isBanned = true
     }
 }
 }
@@ -66,10 +84,13 @@ for (var x=0; x < retrievedUser.length; x++) {
   if (!password || !username || !password1 || !name) {
      alert("idiot");
      return;
- }else if (chooseAnother) {
+ } else if (chooseAnother) {
     document.getElementById("registrationResult").textContent =("Username already taken, choose another one");
      return;
- }else if ((password.length < 6) || (username.length <6)) {
+ } else if (isBanned) {
+    document.getElementById("registrationResult").textContent =("this username ID has been banned, choose another ID");
+     return;
+ } else if ((password.length < 6) || (username.length <6)) {
     document.getElementById("registrationResult").textContent = ("min 6 characters for user and pass dork");
     return
  } else if ((username.indexOf(" ") !== -1) || (password.indexOf(" ") !== -1)) {
