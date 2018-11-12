@@ -84,27 +84,27 @@ if (banned) {
   if (!password || !username || !password1 || !name) {
      alert("idiot");
      return;
- } else if (chooseAnother) {
-    document.getElementById("registrationResult").textContent =("Username already taken, choose another one");
-     return;
  } else if (isBanned) {
     document.getElementById("registrationResult").textContent =("this username ID has been banned, choose another ID");
      return;
+ } else if (chooseAnother) {
+    document.getElementById("registrationResult").textContent =("Username already taken, choose another one");
+     return;
  } else if ((password.length < 6) || (username.length <6)) {
     document.getElementById("registrationResult").textContent = ("min 6 characters for user and pass dork");
-    return
+    return;
  } else if ((username.indexOf(" ") !== -1) || (password.indexOf(" ") !== -1)) {
     document.getElementById("registrationResult").textContent = ("No spaces :(");
-     return
+     return;
  } else if (username === password) {
     document.getElementById("registrationResult").textContent = ("username and password can not be the same");
-     return
+     return;
  } else if (password.search(/\d/)== -1) {
     document.getElementById("registrationResult").textContent = ("password needs to contain atleast a number");
-     return
+     return;
  } else if (password.search(/\w*[A-Z]/)== -1) {
      alert("password needs to contain atleast an UPPERCASE letter")
-     return
+     return;
  } else if (password === password1) {
     newUser(name,username,password);
     localStorage.setItem("array",JSON.stringify(users));
@@ -112,7 +112,7 @@ if (banned) {
     window.location = "login.html";
 } else {
         document.getElementById("registrationResult").textContent = "the passwords dont match, try again";
-        return
+        return;
 
 };
 };

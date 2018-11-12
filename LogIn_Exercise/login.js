@@ -90,7 +90,6 @@ if (attempt > 0) {
             // else you get a message showed
             attempt--;
             console.log("incorrect username or password");
-            alert("Wrong username or password. You have " + attempt + " attempts left. ");
             document.getElementById("loginResult").textContent = "Incorrect username or password. You have " + attempt + " attempts left.";
         }
         
