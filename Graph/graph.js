@@ -48,7 +48,9 @@ for (var i=0;i<companyArray.length;i++) {
             );
         break;
     } else {
+        location.reload();
         alert("nope")
+        return;
     }
 }
 
