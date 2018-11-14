@@ -1,25 +1,25 @@
 var submit = document.getElementById("submit");
 
+class Companies {
+    constructor(symbol,name,ceo) {
+        this.symbol = symbol;
+        this.name = name;
+        this.ceo = ceo;
+    }
+}
+
+var companyArray = []
+
+function newCompany (symbol,name,ceo) {
+    var temp = new Companies(symbol,name,ceo)
+    companyArray.push(temp)
+}
+
+newCompany("AABA", "Altaba Inc", "Thomas J. McInerney");
+newCompany("AAL", "American Airlines Gp", "Doug Parker");
+newCompany("AAME", "Atlantic Amer Cp", "Hilton H. Howell, Jr")
+
 function getInfo() {
-    
-    class Companies {
-        constructor(symbol,name,ceo) {
-            this.symbol = symbol;
-            this.name = name;
-            this.ceo = ceo;
-        }
-    }
-    
-    var companyArray = []
-    
-    function newCompany (symbol,name,ceo) {
-        var temp = new Companies(symbol,name,ceo)
-        companyArray.push(temp)
-    }
-    
-    newCompany("AABA", "Altaba Inc", "Thomas J. McInerney");
-    newCompany("AAL", "American Airlines Gp", "Doug Parker");
-    newCompany("AAME", "Atlantic Amer Cp", "Hilton H. Howell, Jr")
 
 var retrieve = document.getElementById("companyList").value;
 
