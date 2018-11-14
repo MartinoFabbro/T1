@@ -13,8 +13,8 @@ class Banned {
         }
     };
     
-    function newBan(username) {
-        var temp = new Banned (username);
+function newBan(username) {
+    var temp = new Banned (username);
         banned.push(temp)
     ;}
 
@@ -38,7 +38,7 @@ function getInfo() {
     
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    
+
     function hashedPass(password) {
         var a = 1, c = 0, h, o;
         if (password) {
@@ -86,6 +86,7 @@ if (attempt > 0) {
            // console.log(username + " is logged in");
             alert("Hi, "+ username +" You will now be redirected");
             window.location = "../Graph/mainPage.html"
+            localStorage.setItem("loggedIn",JSON.stringify(username))
         } else {
             // else you get a message showed
             attempt--;

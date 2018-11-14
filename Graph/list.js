@@ -1,3 +1,6 @@
+// replaced by class in grap js
+
+
 const arraySymbol = [
 "AABA",
 "AAL",
