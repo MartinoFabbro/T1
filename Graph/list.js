@@ -1,4 +1,5 @@
 // replaced by class in grap js
+// I need this just to retrieve the company names and ceos
 
 
 const arraySymbol = [

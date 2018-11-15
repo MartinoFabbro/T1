@@ -1,7 +1,7 @@
 var submit = document.getElementById("submit");
 
 class Companies {
-    constructor(symbol,name,ceo) {
+    constructor(symbol,name,ceo,) {
         this.symbol = symbol;
         this.name = name;
         this.ceo = ceo;
@@ -9,24 +9,47 @@ class Companies {
 }
 
 var companyArray = []
-
+//
 function newCompany (symbol,name,ceo) {
     var temp = new Companies(symbol,name,ceo)
     companyArray.push(temp)
 }
+//
+newCompany("AABA", "Altaba Inc", "Thomas J. McInerney", "jesus");
+newCompany("AAL", "American Airlines Gp", "Doug Parker", "AmericanAir");
+newCompany("AAME", "Atlantic Amer Cp", "Hilton H. Howell, Jr", "jesus")
 
-newCompany("AABA", "Altaba Inc", "Thomas J. McInerney");
-newCompany("AAL", "American Airlines Gp", "Doug Parker");
-newCompany("AAME", "Atlantic Amer Cp", "Hilton H. Howell, Jr")
+//-------Test-----------------
+var test = 0
+if (test===1) {
+console.log(companyArray.length)
+console.log(companyArray)
 
+console.log(companyArray[0].name)
+console.log(companyArray[0].symbol)
+
+console.log(companyArray[1].name)
+console.log(companyArray[1].symbol)
+
+console.log(companyArray[2].name)
+console.log(companyArray[2].symbol)
+
+for (var i=0; i<companyArray; i++) {
+    console.log(companyArray[i].symbol)
+    break;
+}
+}
+//-----Test-End--------
+//
 function getInfo() {
 
 var retrieve = document.getElementById("companyList").value;
 
-for (var i=0;i<companyArray.length;i++) {
-    if(companyArray[i].name === retrieve) {
-        var fetch = companyArray[i].symbol;
-        var ceo = companyArray[i].ceo;
+for (var x=0; x<companyArray.length; x++) {
+    if(companyArray[x].name === retrieve) {
+        console.log(companyArray[x].name)
+        var fetch = companyArray[x].symbol;
+        var ceo = companyArray[x].ceo;
         setTimeout(function(){ 
         document.getElementById("ceo").innerHTML= ceo;},1500);
 
@@ -45,30 +68,20 @@ for (var i=0;i<companyArray.length;i++) {
             "allow_symbol_change": true,
             "container_id": "tradingview_29b33"
           }
-            );
-        break;
-    } else {
-        location.reload();
-        alert("nope")
-        return;
-    }
-}
-
-//-------Test-----------------
-var test = 0
-if (test===1) {
-console.log(companyArray)
-for (var i=0; i<companyArray; i++) {
-    console.log([i].Companies.name)
-}
-console.log(fetch)
-}
-//-----Test-End----------------
-
-
+            ); 
+            break;
+} 
 };
 
+var isPresent = companyArray.some(function(element){ 
+    return element.name === retrieve});
 
+if (isPresent === false) {
+    alert("the company does not exist")
+    location.reload()
+}
+
+}
 
 
 function logOff() {
