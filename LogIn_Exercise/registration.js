@@ -48,7 +48,18 @@ function hashPassword(password) {
 };
 
 function getInfo() {
-    
+
+    function resetFields() {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("password1").value = "";
+    }
+
+    function resetsPass() {
+        document.getElementById("password").value = "";
+        document.getElementById("password1").value = "";
+    }
+
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var password1 = document.getElementById("password1").value;
@@ -86,25 +97,40 @@ if (banned) {
      return;
  } else if (isBanned) {
     document.getElementById("registrationResult").textContent =("this username ID has been banned, choose another ID");
-     return;
+    resetFields()
+    return;
  } else if (chooseAnother) {
     document.getElementById("registrationResult").textContent =("Username already taken, choose another one");
-     return;
- } else if ((password.length < 6) || (username.length <6)) {
-    document.getElementById("registrationResult").textContent = ("min 6 characters for user and pass dork");
+    resetFields()
     return;
+ } else if ((password.length < 6) || (username.length <6)) {
+     if (password.length < 6) {
+    document.getElementById("registrationResult").textContent = ("min 6 characters for the password dork");
+    resetsPass()
+     } else {
+    document.getElementById("registrationResult").textContent = ("min 6 characters for username dork");
+    document.getElementById("username").value = "";     
+ } return;
  } else if ((username.indexOf(" ") !== -1) || (password.indexOf(" ") !== -1)) {
     document.getElementById("registrationResult").textContent = ("No spaces :(");
-     return;
+    resetFields()
+    return;
  } else if (username === password) {
     document.getElementById("registrationResult").textContent = ("username and password can not be the same");
-     return;
+    resetFields()
+    return;
  } else if (password.search(/\d/)== -1) {
     document.getElementById("registrationResult").textContent = ("password needs to contain atleast a number");
-     return;
+    resetsPass()
+    return;
  } else if (password.search(/\w*[A-Z]/)== -1) {
      alert("password needs to contain atleast an UPPERCASE letter")
+     resetsPass()
      return;
+ } else if (name === username) {
+    document.getElementById("registrationResult").textContent = ("name and username can not be equal");
+    document.getElementById("username").value = "";
+    return;
  } else if (password === password1) {
     newUser(name,username,password);
     localStorage.setItem("array",JSON.stringify(users));
@@ -112,6 +138,7 @@ if (banned) {
     window.location = "login.html";
 } else {
         document.getElementById("registrationResult").textContent = "the passwords dont match, try again";
+        resetsPass()
         return;
 
 };

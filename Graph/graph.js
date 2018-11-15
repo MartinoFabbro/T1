@@ -79,9 +79,8 @@ var isPresent = companyArray.some(function(element){
 if (isPresent === false) {
     alert("the company does not exist")
     location.reload()
-}
-
-}
+ }
+};
 
 
 function logOff() {
