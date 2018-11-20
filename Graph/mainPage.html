@@ -6,27 +6,11 @@
     <script src="awesomplete.js" async></script>
     <script src="list.js"></script>
     <link rel="stylesheet" href="graph.css">
-    <script>window.twttr = (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-              t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          
-            t._e = [];
-            t.ready = function(f) {
-              t._e.push(f);
-            };
-          
-            return t;
-          }(document, "script", "twitter-wjs"));</script>
 </head>
 
 <body>
  
-<h1>Who cares</h1>
+<h1 id="title">Who cares</h1>
 
 
 <!-- autocomplete library-->
@@ -36,14 +20,6 @@
     <option>Altaba Inc</option>
     <option>American Airlines Gp</option>
     <option>Atlantic Amer Cp</option>
-    <option>Applied Optoelect</option>
-    <option>Aaon Inc</option>
-    <option>Apple Inc</option>
-    <option>Atlas Air Ww</option>
-    <option>All Country Asia Ex Japan Ishares MSCI ETF</option>
-    <option>Axon Inc</option>
-    <option>Aoxin Tianli Grp</option>
-
 
 </datalist>
 <datalist id="companies"></datalist>
@@ -55,10 +31,8 @@
 <br>
 
 
-     <span for="ceo">CEO:</span>
+     <span id="ceoStyle" for="ceo">CEO:</span>
      <span id ="ceo"></span>
-
-
 
 
 <br>
@@ -75,6 +49,10 @@
 
 <br>
 <br>
+
+<span id="altaba"><a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+<span id="jesus"><a class="twitter-timeline" href="https://twitter.com/jesus?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+<span id="atlanticamer"><a class="twitter-timeline" href="https://twitter.com/TheAtlantic?ref_src=twsrc%5Etfw">Tweets by TheAtlantic</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
 
 </body>
 

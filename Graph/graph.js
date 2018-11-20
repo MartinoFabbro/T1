@@ -1,4 +1,14 @@
 var submit = document.getElementById("submit");
+document.getElementById("ceoStyle").style.display="none"
+window.onload = hideTwitter
+
+function hideTwitter(){
+document.querySelector(".twitter-timeline").style.display="none"
+document.querySelector("#jesus").style.display="none"
+document.querySelector("#atlanticamer").style.display="none"
+
+}
+
 
 class Companies {
     constructor(symbol,name,ceo,) {
@@ -42,6 +52,8 @@ for (var i=0; i<companyArray; i++) {
 //-----Test-End--------
 //
 function getInfo() {
+document.getElementById("ceoStyle").style.display="block"
+
 
 var retrieve = document.getElementById("companyList").value;
 
@@ -80,6 +92,17 @@ if (isPresent === false) {
     alert("the company does not exist")
     location.reload()
  }
+
+if (companyArray[x].name === "Altaba Inc") {
+    document.querySelector(".twitter-timeline").style.display="block"
+} else if (companyArray[x].name === "American Airlines Gp") {
+    document.querySelector(".twitter-timeline").style.display="none"
+    document.querySelector("#jesus").style.display="block"
+} else if (companyArray[x].name === "Atlantic Amer Cp") {
+    document.querySelector(".twitter-timeline").style.display="none"
+    document.querySelector("#jesus").style.display="none"
+    document.querySelector("#atlanticamer").style.display="block"
+}
 };
 
 
@@ -90,6 +113,4 @@ function logOff() {
 
 submit.onclick = getInfo;
 logoff.onclick = logOff;
-
-
 
