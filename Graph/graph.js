@@ -112,7 +112,7 @@ if (companyArray[x].name === "Altaba Inc") {
 }
 };
 
-// redirect to the registration page and remove the logged username from the local storage
+// redirect to the registration page
 function logOff() {
     window.location = "../LogIn_Exercise/index.html"
 };

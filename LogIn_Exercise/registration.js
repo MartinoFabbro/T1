@@ -1,13 +1,15 @@
 var submit = document.getElementById("submit");
 var registration = document.getElementById("redirect");
 
+// this is the users array, if there is no array on the local storage a new empty array is created, if there is an array in the loca storage a new array with those elements is created
+
 if (localStorage.getItem("array")) {
     users = JSON.parse(localStorage.getItem("array"))
 } else {
     users = []
 }
 
-
+// a new class is created, each user has a name, username and a hashed password
 class User {
 constructor(name,username,password) {
         this.name = name;
@@ -15,7 +17,7 @@ constructor(name,username,password) {
         this.password = hashPassword(password);
     }
 };
-
+// this function allows to automacally push a new user into the local storage
 function newUser(name,username,password) {
     var temp = new User(name,username,password);
     users.push(temp)
@@ -74,7 +76,7 @@ function getInfo() {
     } else {
         banned = []
     }
-
+// if another user with the same username already registerd the chooseanother var turns true, then you are asked to provide a different username
 if (retrievedUser) {
 for (var x=0; x < retrievedUser.length; x++) {
     if (retrievedUser[x].username === username) {
@@ -120,6 +122,7 @@ if (banned) {
     document.getElementById("registrationResult").textContent = ("username and password can not be the same");
     resetFields()
     return;
+    // two regexs that check if numbers or upper case letters are present in the password
  } else if (password.search(/\d/)== -1) {
     document.getElementById("registrationResult").textContent = ("password needs to contain atleast a number");
     resetsPass()
