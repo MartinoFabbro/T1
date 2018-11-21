@@ -114,7 +114,6 @@ if (companyArray[x].name === "Altaba Inc") {
 
 // redirect to the registration page and remove the logged username from the local storage
 function logOff() {
-    localStorage.removeItem("loggedIn")
     window.location = "../LogIn_Exercise/index.html"
 };
 
