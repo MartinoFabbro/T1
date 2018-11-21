@@ -1,3 +1,4 @@
+// this is the number of attempts available for the user
 var attempt = 3;
 var retrievedUser = JSON.parse(localStorage.getItem("array"))
 
@@ -65,7 +66,7 @@ function getInfo() {
 
 
 
-// // Check logins if the user has more than 1 attempt left
+// // Check logins if the user has more than 0 attempt left
 
 if (attempt > 0) {
 

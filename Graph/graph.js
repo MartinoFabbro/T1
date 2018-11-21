@@ -102,9 +102,12 @@ if (isPresent === false) {
  // https://www.youtube.com/watch?v=pgl37R7hILE  :)
 if (companyArray[x].name === "Altaba Inc") {
     document.querySelector(".twitter-timeline").style.display="block"
+    document.querySelector("#jesus").style.display="none"
+    document.querySelector("#atlanticamer").style.display="none"
 } else if (companyArray[x].name === "American Airlines Gp") {
     document.querySelector(".twitter-timeline").style.display="none"
     document.querySelector("#jesus").style.display="block"
+    document.querySelector("#atlanticamer").style.display="none"
 } else if (companyArray[x].name === "Atlantic Amer Cp") {
     document.querySelector(".twitter-timeline").style.display="none"
     document.querySelector("#jesus").style.display="none"

@@ -1,4 +1,4 @@
-//Index.js functions as the backend
+//backend.js functions as the backend
 
 //express package installed to the dependencies and implemented in the file
 var express = require("express");
