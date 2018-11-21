@@ -1,8 +1,8 @@
 var submit = document.getElementById("submit");
 document.getElementById("ceoStyle").style.display="none"
 
-// because twitter widgets can not be modified trough JS, the (dumb) idea behind this is 
-// loading each company's twitter timeline (on the html file) and then, as the page load, hiding it by calling this function
+// Because twitter widgets can not be modified trough JS, the idea behind this is to load 
+//each company's twitter timeline (on the html file) and then, as the page loads, hide it by calling this function
 window.onload = hideTwitter
 
 function hideTwitter(){
