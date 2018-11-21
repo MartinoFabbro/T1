@@ -1,11 +1,11 @@
-//chat.js functions as the frontend!
-//Makes a connection
-//Different socket.io than the backend!
+//chat.js functions as the frontend
+
+//Different socket.io than the backend
 var socket = io.connect("http://localhost:8080");
 
-//Implementing variables from index.html
+//Implementing variables from chat.html
 var message = document.getElementById("message");
-handle = document.getElementById("handle"),
+username = document.getElementById("username"),
 button = document.getElementById("send"),
 output = document.getElementById("output"),
 feedback = document.getElementById("feedback");
