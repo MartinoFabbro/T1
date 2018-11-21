@@ -33,11 +33,16 @@ for (var x=0; x<retrievedUser.length; x++) {
 
 var submit = document.getElementById("submit");
 var back = document.getElementById("register");
+var change = false;
+
+
 
 function getInfo() {
     
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    var currentUser = JSON.parse(localStorage.getItem("currentUser"))
+
 
     function hashedPass(password) {
         var a = 1, c = 0, h, o;
@@ -59,43 +64,55 @@ function getInfo() {
 
 
 
+
 // // Check logins if the user has more than 1 attempt left
-if (!username || !password) {
-    alert("dork");
-    return;
-}
- 
-for (i=0; i<banned.length; i++) {
-    if (banned[i].username === username) {
-        alert("this user is banned");
+
+if (attempt > 0) {
+
+    if (!username || !password) {
+        alert("dork");
         return;
     }
-}
+     
+    for (i=0; i<banned.length; i++) {
+        if (banned[i].username === username) {
+            alert("this user is banned");
+            return;
+        }
+    }
     
-if (attempt > 0) {
   var logged_in = false;
+
   for (var i=0; i<retrievedUser.length; i++) {
             if (retrievedUser[i].username === username && retrievedUser[i].password === hashedPass(password)) {
                 logged_in = true;
                 break;
             }
         };
-        
-            //if any of them match you get redirected to index2
+    
+   
+   
+    if (username === currentUser || logged_in) {
+    //if any of them match you get redirected to index2
         if (logged_in) { 
            // console.log(username + " is logged in");
             alert("Hi, "+ username +" You will now be redirected");
             window.location = "../Graph/mainPage.html"
-            localStorage.setItem("loggedIn",JSON.stringify(username))
-        } else {
             // else you get a message showed
-            attempt--;
+         } else { attempt--;
             console.log("incorrect username or password");
             document.getElementById("loginResult").textContent = "Incorrect username or password. You have " + attempt + " attempts left.";
         }
         
+    } else  if (username !== currentUser || logged_in == false){
+        document.getElementById("loginResult").textContent = "New user detected, but wrong username/password inserted, You have 2 attempts left.";
+        localStorage.setItem("currentUser",JSON.stringify(username));
+        attempt = 2;
+    } 
+
     } else {
         newBan(username);
+        localStorage.removeItem("currentUser",JSON.stringify(username));
         localStorage.setItem("banned",JSON.stringify(banned));
         document.getElementById("username").disabled = true;
         document.getElementById("password").disabled = true;
@@ -104,7 +121,8 @@ if (attempt > 0) {
         setTimeout(function() {alert("You are banned");},2000);
         return;
     }
-};
+} 
+    
 
 
 function goBack () {
@@ -114,3 +132,8 @@ function goBack () {
 
 submit.onclick = getInfo
 back.onclick = goBack
+
+
+
+
+

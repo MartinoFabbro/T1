@@ -1,8 +1,6 @@
 var submit = document.getElementById("submit");
 var registration = document.getElementById("redirect");
 
-// var users = [];
-
 if (localStorage.getItem("array")) {
     users = JSON.parse(localStorage.getItem("array"))
 } else {
@@ -66,6 +64,7 @@ function getInfo() {
     var name = document.getElementById("name").value;
    
     var retrievedUser = JSON.parse(localStorage.getItem("array"));
+
     var chooseAnother = false;
 
     var isBanned = false;
@@ -91,6 +90,8 @@ if (banned) {
     }
 }
 }
+
+// giant if-else statement, maybe I should have used a switch statement but somehow I couldnt make it work, also there are a few boolean variables and maybe if-else works better
 
   if (!password || !username || !password1 || !name) {
      alert("idiot");
@@ -135,6 +136,7 @@ if (banned) {
     newUser(name,username,password);
     localStorage.setItem("array",JSON.stringify(users));
     alert("Registration Succesfull. "+ name +" You will now be redirected");
+    localStorage.setItem("currentUser",JSON.stringify(username));
     window.location = "login.html";
 } else {
         document.getElementById("registrationResult").textContent = "the passwords dont match, try again";
