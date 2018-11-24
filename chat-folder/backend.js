@@ -1,4 +1,4 @@
-//backend.js functions as the backend for the Chat Room
+//backend.js functions as the entrypoint and backend for the chat room
 
 //express package installed to the dependencies and implemented in the file
 var express = require("express");
@@ -24,7 +24,7 @@ io.on("connection", function(socket){
 
 //call back function
   socket.on("chat", function(data){
-//"sockets" refer too all client sockets
+//"sockets" refers to all client sockets
     io.sockets.emit("chat", data);
   });
   socket.on("typing", function(data){

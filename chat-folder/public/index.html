@@ -2,11 +2,19 @@
 <html>
 <head>
   <meta chatset="utf-8">
-  <title>Chart Chat</title>
+  <title>ChartChat</title>
   <script src=https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js></script>
   <link href="/chat.css" rel="stylesheet" />
 </head>
 <body>
+  
+  <button onclick="chatWindow()">New ChartChat</button>
+<script>
+function chatWindow() {
+    window.open("http://localhost:8080");
+}
+</script>
+  
   <div id="chart-chat">
     <div id="chat-window">
       <div id="feedback"></div>
