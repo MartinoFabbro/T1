@@ -122,7 +122,7 @@ if (attempt > 0) {
         document.getElementById("username").disabled = true;
         document.getElementById("password").disabled = true;
         document.getElementById("submit").disabled = true;
-        document.getElementById("loginResult").textContent ="Can't you read?";
+        document.getElementById("loginResult").textContent ="No login attempts left";
         setTimeout(function() {alert("You are banned");},2000);
         return;
     }
