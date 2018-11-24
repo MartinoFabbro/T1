@@ -1,13 +1,36 @@
 
-#logoff {
-    font-family: fantasy;
-    font-size: 20px;
-   color: brown;
-   padding: 30px;
-border: none;
-position: absolute;
-right: 10px;
-top: 10px;
-    
-
+.main {
+    position: absolute;
+    left: 10px;
 };
+
+.tradingview-widget-container {
+    position: absolute;
+    float: left;
+    box-sizing: content-box;
+    height: calc(350px - 32px);
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-family: Arial,sans-serif;
+}
+
+.frame {
+    position: absolute;
+    float: right;
+    height: calc(350px - 32px);
+    width: 250;
+    right: 150px;
+    top: 100px;
+}
+.tradingview-widget-containe,.twitterborder {
+    float: right;
+    box-sizing: content-box;
+    height: calc(350px - 32px);
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-family: Arial,sans-serif;
+    right: 100px;
+    top: 150px;
+}
+
+

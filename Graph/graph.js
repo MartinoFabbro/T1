@@ -3,13 +3,12 @@ document.getElementById("ceoStyle").style.display="none"
 
 // Because twitter widgets can not be modified trough JS, the idea behind this is to load 
 //each company's twitter timeline (on the html file) and then, as the page loads, hide it by calling this function
-window.onload = hideTwitter
 
-function hideTwitter(){
+document.addEventListener("DOMContentLoaded", function() {
 document.querySelector(".twitter-timeline").style.display="none"
 document.querySelector("#jesus").style.display="none"
 document.querySelector("#atlanticamer").style.display="none"
-}
+})
 
 // a class that store each company information, it should have included the Twitter accout as well but twitter doesnt allow dynamic widgets vOv.
 class Companies {
@@ -72,8 +71,8 @@ for (var x=0; x<companyArray.length; x++) {
         // this is the tradingView widget, modifing the "symbol" string allow us to search each NASDAQ company
         new TradingView.widget(
             {
-            "width": 980,
-            "height": 610,
+            "width": 650,
+            "height": 450,
             "symbol": "NASDAQ:"+ fetch,
             "interval": "60",
             "timezone": "Europe/Copenaghen",
