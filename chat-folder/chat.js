@@ -3,7 +3,7 @@
 //different socket.io than the backend
 var socket = io.connect("http://localhost:8080");
 
-//implementing variables from index.html
+//implementing variables from chat.html
 var message = document.getElementById("message");
 username = document.getElementById("username"),
 button = document.getElementById("send"),
