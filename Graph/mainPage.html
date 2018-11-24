@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="awesomplete.css" />
-    <script src="awesomplete.js" async></script>
     <script src="list.js"></script>
     <link rel="stylesheet" href="graph.css">
     <link rel="stylesheet" href="css2.css">
@@ -20,16 +19,15 @@
             window.open("http://localhost:8080");
         }
         </script>
-<!-- autocomplete library-->
-<input class="awesomplete" list="mylist" id="companyList" />
-<datalist id="mylist">
+        
+<select id="companyList">
 
-    <option>Altaba Inc</option>
+    <option value="" disabled selected>Select your option</option>
+    <option>Apple Inc</option>
     <option>American Airlines Gp</option>
     <option>Atlantic Amer Cp</option>
 
-</datalist>
-<datalist id="companies"></datalist>
+</select>
 
 <input type="submit" value="company" name="submit" id="submit"  />
 <input type="button" value="logoff" name="logoff" id="logoff" />
@@ -61,8 +59,10 @@
 <br>
 
 <div class="frame">
-<div class="twitterborder">
-<span id=altaba><iframe class="twitter-timeline" border=0 frameborder=0 height=400 width=350 
+
+<!--IGNORE-->
+
+<!-- <span id=altaba><iframe class="twitter-timeline" border=0 frameborder=0 height=400 width=350 
         src="https://twitframe.com/show?url=https%3A%2F%2Ftwitter.com%2Fofficialmcafee%2Fstatus%2F1066328471545290752">
 </iframe></span>
 
@@ -72,14 +72,15 @@
 
 <span id=atlanticamer><iframe  class="twitter-timeline" border=0 frameborder=0 height=400 width=350 
         src="https://twitframe.com/show?url=https%3A%2F%2Ftwitter.com%2Fofficialmcafee%2Fstatus%2F1065795561520070663">
-</iframe></span>
+</iframe></span> -->
+
+<!--END-->
 
 
 
-<!-- <span id="altaba"><a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span> -->
-<!-- <span id="jesus"><a class="twitter-timeline" href="https://twitter.com/jesus?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
-<span id="atlanticamer"><a class="twitter-timeline" href="https://twitter.com/TheAtlantic?ref_src=twsrc%5Etfw">Tweets by TheAtlantic</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span> -->
-</div>
+<span id="apple"><a class="twitter-timeline" frameborder=0 height=400 width=350 href="https://twitter.com/tim_cook?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by Tim Cook</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+<span id="aa"><a class="twitter-timeline" frameborder=0 height=400 width=350 href="https://twitter.com/AmericanAir">Tweets by AmericanAir</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+<span id="atlanticamer"><a class="twitter-timeline" frameborder=0 height=400 width=350 href="https://twitter.com/TheAtlantic?ref_src=twsrc%5Etfw">Tweets by TheAtlantic</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
 </div>
 </body>
 

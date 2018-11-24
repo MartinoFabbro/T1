@@ -4,11 +4,16 @@ document.getElementById("ceoStyle").style.display="none"
 // Because twitter widgets can not be modified trough JS, the idea behind this is to load 
 //each company's twitter timeline (on the html file) and then, as the page loads, hide it by calling this function
 
+window.onload=override
+function override() {
+document.querySelector(".twitter-timeline").style.display="none";
+};
+
 document.addEventListener("DOMContentLoaded", function() {
-document.querySelector(".twitter-timeline").style.display="none"
-document.querySelector("#jesus").style.display="none"
-document.querySelector("#atlanticamer").style.display="none"
-})
+document.querySelector(".twitter-timeline").style.display="none";
+document.querySelector("#atlanticamer").style.display="none";
+document.querySelector("#aa").style.display="none";
+});
 
 // a class that store each company information, it should have included the Twitter accout as well but twitter doesnt allow dynamic widgets vOv.
 class Companies {
@@ -27,9 +32,9 @@ function newCompany (symbol,name,ceo) {
     companyArray.push(temp)
 }
 // creating 3 companies
-newCompany("AABA", "Altaba Inc", "Thomas J. McInerney", "jesus");
-newCompany("AAL", "American Airlines Gp", "Doug Parker", "AmericanAir");
-newCompany("AAME", "Atlantic Amer Cp", "Hilton H. Howell, Jr", "jesus")
+newCompany("AAPL", "Apple Inc", "Tim Cook");
+newCompany("AAL", "American Airlines Gp", "Doug Parker");
+newCompany("AAME", "Atlantic Amer Cp", "Hilton H. Howell, Jr");
 
 //-------Test-----------------
 var test = 0
@@ -66,7 +71,7 @@ for (var x=0; x<companyArray.length; x++) {
         var fetch = companyArray[x].symbol;
         var ceo = companyArray[x].ceo;
         setTimeout(function(){ 
-        document.getElementById("ceo").innerHTML= ceo;},1500);
+        document.getElementById("ceo").innerHTML= ceo;},500);
 
         // this is the tradingView widget, modifing the "symbol" string allow us to search each NASDAQ company
         new TradingView.widget(
@@ -99,17 +104,17 @@ if (isPresent === false) {
  }
 
  // https://www.youtube.com/watch?v=pgl37R7hILE  :)
-if (companyArray[x].name === "Altaba Inc") {
+if (companyArray[x].name === "Apple Inc") {
     document.querySelector(".twitter-timeline").style.display="block"
-    document.querySelector("#jesus").style.display="none"
+    document.querySelector("#aa").style.display="none"
     document.querySelector("#atlanticamer").style.display="none"
 } else if (companyArray[x].name === "American Airlines Gp") {
     document.querySelector(".twitter-timeline").style.display="none"
-    document.querySelector("#jesus").style.display="block"
+    document.querySelector("#aa").style.display="block"
     document.querySelector("#atlanticamer").style.display="none"
 } else if (companyArray[x].name === "Atlantic Amer Cp") {
     document.querySelector(".twitter-timeline").style.display="none"
-    document.querySelector("#jesus").style.display="none"
+    document.querySelector("#aa").style.display="none"
     document.querySelector("#atlanticamer").style.display="block"
 }
 };
@@ -119,6 +124,9 @@ function logOff() {
     window.location = "../LogIn_Exercise/index.html"
 };
 
+
 submit.onclick = getInfo;
 logoff.onclick = logOff;
+
+
 
