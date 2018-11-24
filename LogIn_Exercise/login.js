@@ -93,7 +93,7 @@ if (attempt > 0) {
         };
     
    
-// ok... I'm not sure about this, it first check if the inserted username is equal to the one in the local storage or if the username 
+// ok... I'm not sure about this, the code first check if the inserted username is equal to the one in the local storage or if the username 
 // and password match, if this is the case it checks if the username is actually correct redirecting to a new page, however, if the 
 // username is indeed equal to the previous username (which has been uploaded into the local storage) but the data is wrong
 // then a warning is issued and the counter is reduced

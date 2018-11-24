@@ -138,7 +138,7 @@ if (banned) {
  } else if (password === password1) {
     newUser(name,username,password);
     localStorage.setItem("array",JSON.stringify(users));
-    alert("Registration Succesfull. "+ name +" You will now be redirected");
+    alert("Registration Successful. "+ name +" You will now be redirected");
     localStorage.setItem("currentUser",JSON.stringify(username));
     window.location = "login.html";
 } else {
