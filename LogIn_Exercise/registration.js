@@ -96,7 +96,7 @@ if (banned) {
 // giant if-else statement, maybe I should have used a switch statement but somehow I couldnt make it work, also there are a few boolean variables and maybe if-else works better
 
   if (!password || !username || !password1 || !name) {
-     alert("idiot");
+     alert("Fill every field please");
      return;
  } else if (isBanned) {
     document.getElementById("registrationResult").textContent =("this username ID has been banned, choose another ID");
@@ -108,14 +108,14 @@ if (banned) {
     return;
  } else if ((password.length < 6) || (username.length <6)) {
      if (password.length < 6) {
-    document.getElementById("registrationResult").textContent = ("min 6 characters for the password dork");
+    document.getElementById("registrationResult").textContent = ("min 6 characters for the password");
     resetsPass()
      } else {
-    document.getElementById("registrationResult").textContent = ("min 6 characters for username dork");
+    document.getElementById("registrationResult").textContent = ("min 6 characters for username");
     document.getElementById("username").value = "";     
  } return;
  } else if ((username.indexOf(" ") !== -1) || (password.indexOf(" ") !== -1)) {
-    document.getElementById("registrationResult").textContent = ("No spaces :(");
+    document.getElementById("registrationResult").textContent = ("No spaces allowed");
     resetFields()
     return;
  } else if (username === password) {

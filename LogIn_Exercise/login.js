@@ -71,7 +71,7 @@ function getInfo() {
 if (attempt > 0) {
 
     if (!username || !password) {
-        alert("dork");
+        alert("Insert username and password");
         return;
     }
  // loop trough the loop array and check if the username is already banned   
