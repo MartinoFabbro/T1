@@ -1,6 +1,10 @@
 // this is the number of attempts available for the user
 var attempt = 3;
+console.log(attempt)
+
 var retrievedUser = JSON.parse(localStorage.getItem("array"))
+
+
 
 // this is the banned array, if there is no array on the local storage a new empty array is created, if there is an array in the loca storage a new array with those elements is created
 if (localStorage.getItem("banned")) {
@@ -36,7 +40,6 @@ for (var x=0; x<retrievedUser.length; x++) {
 var submit = document.getElementById("submit");
 var back = document.getElementById("register");
 
-
 function getInfo() {
     
     var username = document.getElementById("username").value;
@@ -44,7 +47,7 @@ function getInfo() {
     // this pull the currentUser from the local storage, I need this later to check if the username submitted is different from the previous one
     var currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-// hendrik's hash function
+// Henrik's hash function
     function hashedPass(password) {
         var a = 1, c = 0, h, o;
         if (password) {
@@ -65,6 +68,7 @@ function getInfo() {
 
 
 
+    console.log(attempt)
 
 // // Check logins if the user has more than 0 attempt left
 
@@ -93,7 +97,7 @@ if (attempt > 0) {
         };
     
    
-// ok... I'm not sure about this, the code first check if the inserted username is equal to the one in the local storage or if the username 
+// The code first check if the inserted username is equal to the one in the local storage or if the username 
 // and password match, if this is the case it checks if the username is actually correct redirecting to a new page, however, if the 
 // username is indeed equal to the previous username (which has been uploaded into the local storage) but the data is wrong
 // then a warning is issued and the counter is reduced
@@ -105,7 +109,19 @@ if (attempt > 0) {
             window.location = "../Graph/mainPage.html"
             // else you get a message showed
          } else { attempt--;
+            if(attempt==0) {
+                newBan(username);
+                localStorage.removeItem("currentUser",JSON.stringify(username));
+                localStorage.setItem("banned",JSON.stringify(banned));
+                document.getElementById("username").disabled = true;
+                document.getElementById("password").disabled = true;
+                document.getElementById("submit").disabled = true;
+                document.getElementById("loginResult").textContent ="No login attempts left";
+                setTimeout(function() {alert("You are banned");},2000);
+                return;
+            }
             console.log("incorrect username or password");
+            console.log(attempt)
             document.getElementById("loginResult").textContent = "Incorrect username or password. You have " + attempt + " attempts left.";
         }
 // however if the username changes from the previous one BUT the username/password are wrong, the user is resetted to 2 attempts (since one has already been used)
@@ -116,29 +132,23 @@ if (attempt > 0) {
     } 
 // if, with the same username, the user input a wrong password three times in a row the username gets banned and added to a localstorage(ed) array
     } else {
-        newBan(username);
-        localStorage.removeItem("currentUser",JSON.stringify(username));
-        localStorage.setItem("banned",JSON.stringify(banned));
-        document.getElementById("username").disabled = true;
-        document.getElementById("password").disabled = true;
-        document.getElementById("submit").disabled = true;
-        document.getElementById("loginResult").textContent ="No login attempts left";
-        setTimeout(function() {alert("You are banned");},2000);
-        return;
+        alert("something went wrong")
     }
 } 
+
     
-
-
 function goBack () {
     window.location = "./index.html"
 }
 
 
+window.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      getInfo()
+    }
+  });
+  
 submit.onclick = getInfo
+
 back.onclick = goBack
-
-
-
-
 

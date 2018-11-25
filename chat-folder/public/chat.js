@@ -14,7 +14,8 @@ feedback = document.getElementById("feedback");
 button.addEventListener("click", function(){
   socket.emit("chat", {
     message: message.value,
-    username: username.value
+    username: username.value,
+    
   });
 });
 

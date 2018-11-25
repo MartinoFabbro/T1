@@ -1,6 +1,8 @@
 var submit = document.getElementById("submit");
 var registration = document.getElementById("redirect");
 
+
+
 // this is the users array, if there is no array on the local storage a new empty array is created, if there is an array in the loca storage a new array with those elements is created
 
 if (localStorage.getItem("array")) {
@@ -150,6 +152,11 @@ if (banned) {
 };
 
 
-
+window.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      getInfo()
+    }
+  });
+  
 submit.onclick= getInfo;
 registration.onclick = redirect;

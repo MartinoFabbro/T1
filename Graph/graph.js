@@ -102,8 +102,8 @@ if (isPresent === false) {
     alert("the company does not exist")
     location.reload()
  }
-
- // https://www.youtube.com/watch?v=pgl37R7hILE  :)
+ 
+ // show and hide the related company's tweet timeboard
 if (companyArray[x].name === "Apple Inc") {
     document.querySelector(".twitter-timeline").style.display="block"
     document.querySelector("#aa").style.display="none"
@@ -121,7 +121,7 @@ if (companyArray[x].name === "Apple Inc") {
 
 // redirect to the registration page
 function logOff() {
-    window.location = "../LogIn_Exercise/index.html"
+    window.location = "../Registration login/index.html"
 };
 
 
