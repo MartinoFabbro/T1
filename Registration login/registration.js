@@ -130,7 +130,7 @@ if (banned) {
     resetsPass()
     return;
  } else if (password.search(/\w*[A-Z]/)== -1) {
-     alert("password needs to contain atleast an UPPERCASE letter")
+    document.getElementById("registrationResult").textContent = ("password needs to contain atleast an UPPERCASE letter")
      resetsPass()
      return;
  } else if (name === username) {
